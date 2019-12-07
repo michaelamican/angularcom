@@ -1,0 +1,20 @@
+
+
+<div id='wrapper'>
+  <h1>{{title}}</h1>
+  <ul class='nav'>
+    <li><button class='navitem' [routerLink]='["/products"]'>Home</button></li>
+    <li><button class='navitem' [routerLink]='["/products/new"]'>Add</button></li>
+  </ul>
+
+  <fieldset>
+    <router-outlet></router-outlet>
+  </fieldset>
+
+  <ul class='footer'>
+    <li class='footitem'>Questions?</li>
+    <li class='footitem'>Developer contact info:</li>
+    <li class='footitem'>Email: <a href="mailto:amican.design@gmail.com">amican.design@gmail.com</a></li>
+    <li class='footitem'>Phone: (916) 640-6938</li>
+  </ul>
+</div>

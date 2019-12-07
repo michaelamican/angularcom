@@ -1,0 +1,16 @@
+<div id='error_messages'>
+  <p class='errors' *ngIf='product.name.length < 3'>Product name must be at least 3 characters long</p>
+  <p class='errors' *ngIf='product.qty < 0'>Product qty must be greater than or equal to 0</p>
+  <p class='errors' *ngIf='product.price <= 0'>Product price must be greater than 0</p>
+  <p class='errors' *ngIf='product.img.length < 3'>Product image url must have a longer name.</p>
+  <p class='errors' *ngIf='product.description.length < 3'>Product must have a description</p>
+</div>
+<form id='updateProd' (submit)='fixProd()'>
+    <p>Product Name: <input type='text' name='name' [(ngModel)]='product.name'></p>
+    <p>Inventory: <input type='number' name='qty' [(ngModel)]='product.qty'></p>
+    <p>Price: <input type='number' name='price' [(ngModel)]='product.price'></p>
+    <p>Image URL: <input type='text' name='img' [(ngModel)]='product.img'></p>
+    <p>Description: <input type='text' name='img' [(ngModel)]='product.description'></p>
+    <button id='edit' [disabled]='product.qty < 0 || product.name.length < 3 || product.price <= 0 || product.img == "./../img/" || product.img.length < 3 || product.description < 3' type='submit'>Save</button>
+  </form>
+  <button (click)="reset()">Reset</button>

@@ -1,0 +1,25 @@
+
+<h3>{{product.name}}</h3>
+<div id='spacer'><img src='assets/img/'+{{product.img}}></div>
+<p class='errors' *ngIf='product.qty > 0'>To delete a product, the Qty must be <span class='attn'>0</span>.</p>
+<table>
+  <tr>
+    <td><h3>Name</h3></td>
+    <td><p>{{product.name}}</p></td>
+  </tr>
+  <tr>
+    <td><h3>Qty</h3></td>
+    <td>{{product.qty}}</td>
+  </tr>
+  <tr>
+    <td><h3>Price</h3></td>
+    <td>${{product.price}}</td>
+  </tr>
+  </table>
+  <p>{{product.img}}</p>
+  <p>{{product.description}}</p>
+  <div id='center'>
+    <button [routerLink]="['/']" id='cancel'>Back</button>
+    <button [disabled]="product.qty != 0" (click)="nixProd(product._id)">Delete</button>
+  </div>
+

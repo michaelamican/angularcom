@@ -1,0 +1,23 @@
+<h2>Product List</h2>
+
+<table>
+  <thead>
+    <th>id</th>
+    <th>Url</th>
+    <th>Name</th>
+    <th>Qty</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </thead>
+  <tr *ngFor='let product of products'>
+    <td>{{product._id}}</td>
+    <td>{{product.img}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.qty}}</td>
+    <td>{{product.price}}</td>
+    <td>
+      <button id='smledit' [routerLink]="['/products/'+product._id+'/edit']">Edit</button>
+      <button id='smldet' [routerLink]="['/products/'+product._id]">Details</button>
+    </td>
+  </tr>
+</table>

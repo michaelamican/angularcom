@@ -1,0 +1,28 @@
+<fieldset>
+  <h2>Add to Inventory</h2>
+  <form id='newProd' (submit)='addProd()'>
+      
+<!-- Inputs -->
+   
+    <p>Product Name: <input type='text' name='name' [(ngModel)]='newProduct.name'></p>
+    <p>Inventory: <input type='number' name='qty' [(ngModel)]='newProduct.qty'></p>
+    <p>Price: <input type='number' name='price' [(ngModel)]='newProduct.price'></p>
+    <p>Image URL: <input type='string' name='img' [(ngModel)]='newProduct.img'></p>
+    <p>Image Description: <input type='string' name='description' [(ngModel)]='newProduct.description'></p>
+
+<!-- Errors -->
+
+    <p class='errors' *ngIf='newProduct.name.length < 3'>Product name must be at least 3 characters long</p>
+    <p class='errors' *ngIf='newProduct.qty < 0 '>Product quantity must be at least 0</p>
+    <p class='errors' *ngIf='newProduct.price <=0 '>Product price must be at least 0</p>
+    <p class='errors' *ngIf='newProduct.img.length <=0 '>Product image url must be present</p>
+    <p class='errors' *ngIf='newProduct.description.length < 3'>Product must contain a description</p>  
+
+    <!-- Submission -->
+ 
+    <div id = 'buttons'>
+      <button [routerLink]="['/']" id='cancel'>Cancel</button>
+      <button id='register' type='submit' [disabled]="newProduct.name.length < 3 || newProduct.qty < 0 || newProduct.price < 0 || newProduct.img.length < 3 || newProduct.description.length < 3">Register</button>
+    </div>
+  </form>
+</fieldset>
